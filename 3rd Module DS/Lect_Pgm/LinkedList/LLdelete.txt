@@ -1,0 +1,27 @@
+static void delete(int key)
+	{
+		Node n=head;
+		Node prv=null;
+		if(n!=null && n.data==key)
+		{
+			head=n.next;
+			return;
+		}
+		while(n!=null && n.data!=key)
+		{
+			prv=n;
+			n=n.next;
+		}
+		if(n.next==null)
+		{
+			prv.next=null;
+		}
+		else
+		{
+			prv.next=n.next;
+		}
+
+
+		
+		
+	}
