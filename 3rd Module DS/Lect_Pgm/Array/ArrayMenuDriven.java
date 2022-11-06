@@ -2,7 +2,7 @@ import java.util.*;
 class ArrayMenuDriven
 {
 	    Scanner sc=new Scanner(System.in);
-		 int num;
+		 int num=0;
 		int i;
 		int a1[];
 		
@@ -12,11 +12,12 @@ class ArrayMenuDriven
 			  
 			 //int a1[]=new int[num];
 			System.out.println("Enter Number of element:");
-	         num=sc.nextInt();
-			 a1=new int[num];
+	         int no=sc.nextInt();
+			 a1=new int[no];
+			 int a=num;
 			  System.out.println("\nEnter element of aaray:");
 			
-			for(int i=0;i<num-1;i++)
+			for(int i=a;i<no+a;i++)
 			{
 			   a1[i]=sc.nextInt();
 			   num++;
@@ -25,64 +26,67 @@ class ArrayMenuDriven
 			
 		}
 	
-		void displayElement()
+		 void displayElement()
 		{
-			System.out.println("\nElements in array:");
-			for( i=0;i<num;i++)
+			if(num==0)
+			System.out.println("Array is Empty! ");
+		    else
 			{
-				System.out.println(a1[i]+" ");
-			}	
+				System.out.println("\nElements in array:");
+				for( i=0;i<num;i++)
+				{
+					System.out.println(a1[i]+" ");
+				}	
+			}
 			System.out.println();
 		}	
 		
-		
-		void deleteElement()
+	 boolean deleteElement()
 		{
 			System.out.println("\nEnter element for delete:");
 			int n=sc.nextInt();
-				for(i=0;i<num;i++)
-				{
+				for(i=0;i<n;i++)
 					if(a1[i]==n)
 					{
 						System.out.println(n+" Deleted");
-					}
-				}	
+						break;
+					}	
 				if(i==num)
+				return false;
+	        	else
 				{
-					
-				}  //System.out.println("Last element in aaray");
-				else
-					for(int k=i;k<num;k++)
-					{
-						a1[k]=a1[k+1];
-						num--;
-					}
+					for(int k = i; k<num-1 ; k++)
+					a1[k] = a1[k+1];
+					num--;
+					return true;			
+				}	
 					
 			}
 			
 			
-			void searchElement()
+			 boolean searchElement()
 			{
-				System.out.println("\nEnter element for serach");
-				int a=sc.nextInt();
-				 
-				for(i=0;i<num;i++)
+				//search
+		        int i,key;
+				System.out.println(" Enter Element for delete");
+				key=sc.nextInt();
+		        for( i=0; i<num; i++)  
+			
+				if(a1[i] == key)
 				{
-					if(a1[i]==a)
-					{
-						System.out.println("Element found");
-					     //break;
-					}	 
+					System.out.println("Element " +key+"  found at  index no: "+i );
+				    break;
 				}
-		
-						//System.out.println("Element not found");
 				
-					
-			}
+				 if(i == num)
+					 return false;
+				 else
+					return true;
+				}
 				
 			void exit()
 			{
-				System.out.println("Sorry..You Are exit");
+				System.out.println("You exit");
 			}	
 				
 		
